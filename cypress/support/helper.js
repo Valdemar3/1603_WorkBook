@@ -8,15 +8,15 @@ export function loginViaUI_l(loging) {
     cy.get('a:contains("Login or register")').click()
     cy.get('#loginFrm_loginname').type(loging.loginName)
     cy.get('#loginFrm_password').type(loging.pasw)
-    cy.get('button[title="Login"]')
+    cy.get('button[title="Login"]').click()
 }
 
 export function headlessLogIn(loging) {
 
     let csrftoken,
-    csrfinstance;
+        csrfinstance;
 
-cy.log('**what we are doing???**')
+cy.log('**send request without opening web page in broweser**')
 cy.request('GET', '/index.php?rt=account/login').then( response =>{
   /// we are getting token
   let htmlResp = document.createElement('html')

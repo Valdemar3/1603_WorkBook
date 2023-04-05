@@ -66,7 +66,7 @@ describe ('16_02_23', () => {
       cy.get('#customer_menu_top ul.sub_menu.dropdown-menu').click({force: true})
       cy.get('#customer_menu_top ul.sub_menu li.dropdown').last().click()
 
-       console.log(loging)
+       console.log(loging)  // output datas in console
     })
     it('Autorization+buy good(s) from main page', ()=>{
         cy.log('**Logged in**')

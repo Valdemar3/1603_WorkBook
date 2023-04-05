@@ -1,7 +1,5 @@
 ///<reference types="cypress"/>
 
-// ПОЧЕМУ ТО НЕ РАБОТАЕТ!!! на 28_02 не поня почему
-
 import * as loging from '../fixtures/loging.json'
 import { loginViaUI_l } from '../support/helper'
 
@@ -61,7 +59,7 @@ describe ('16_02_23', () => {
     })
     it('Autorization', ()=>{
       
-      loginViaUI_l()
+      loginViaUI_l(loging)
 
         cy.log('**Open Main page**')
         cy.get('img[title="Automation Test Store"]').click()
