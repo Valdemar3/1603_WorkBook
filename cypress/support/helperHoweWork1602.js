@@ -19,13 +19,29 @@ export function searchFunc(forHoweWork1602) {
 
 export function productFinderWithRecursion (forHoweWork1602) {
     cy.get('body').then((body) => {
-        if (body.find(`[title="${forHoweWork1602.nameOfGood4}"]`).length > 0) {
-            cy.get(`[title="${forHoweWork1602.nameOfGood4}"]`).click()
+        if (body.find(`[title="${forHoweWork1602.nameOfGood3}"]`).length > 0) {
+            cy.get(`[title="${forHoweWork1602.nameOfGood3}"]`).click()
             cy.log('**BINGO**')
         } else {
             cy.log('**NOT BINGO**')
             cy.get('.pagination a[href]').contains('>').click()
             productFinderWithRecursion(forHoweWork1602)
+        }
+    })
+}
+
+export function productFinderWithRecursionTestFail (forHoweWork1602) {
+    cy.get('body').then((body) => {
+        if (body.find(`[title="${forHoweWork1602.nameOfGood3}"]`).length > 0) {
+            cy.get(`[title="${forHoweWork1602.nameOfGood3}"]`).click()
+            cy.log('**BINGO**')
+        } else if (body.find('.pagination li a:contains(">")').length > 0) {
+            cy.log('**NOT BINGO**')
+            cy.get('.pagination a[href]').contains('>').click()
+            productFinderWithRecursionTestFail(forHoweWork1602)
+        } else {
+            cy.log('**Product Not Found**')
+            throw new Error('**!!Product Not Found**')
         }
     })
 }
@@ -38,6 +54,7 @@ export function bookProduct () {
     cy.get('.maintext').contains('Your Order Has Been Processed!')
 }
 
+//------------------------------------------
 //Problem is that function isnt stopping when I am on the good's page
 
 // export const productFinder = (forHoweWork1602) => {

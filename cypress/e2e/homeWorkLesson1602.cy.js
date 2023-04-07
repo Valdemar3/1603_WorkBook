@@ -1,6 +1,6 @@
 //importing datas from fixtures
 import * as forHoweWork1602 from '../fixtures/forHoweWork1602.json'
-import { loggedInFunc, searchFunc, findFunc, productFinderWithRecursion, bookProduct } from '../support/helperHoweWork1602'
+import { loggedInFunc, searchFunc, findFunc, productFinderWithRecursion, bookProduct, productFinderWithRecursionTestFail } from '../support/helperHoweWork1602'
 
 
 describe ('Test Suite for AutomStore', () => {
@@ -17,6 +17,7 @@ describe ('Test Suite for AutomStore', () => {
 
     //Producfinder function RECURSION
     productFinderWithRecursion(forHoweWork1602)
+    //productFinderWithRecursionTestFail(forHoweWork1602)
     
     //Make order
     cy.log('**Call Order Function**')
